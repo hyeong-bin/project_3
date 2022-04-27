@@ -16,6 +16,7 @@ const toggleQuotes = () => {
     setDisplayFact(true)
   } else {
     setDisplayFact(false)
+    setNumberInput('')
   }
 }
 
