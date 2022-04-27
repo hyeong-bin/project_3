@@ -7,14 +7,14 @@ function App() {
   const [displayFact, setDisplayFact] = useState(false)
   const [numberInput, setNumberInput] = useState('')
 
-const handleChangeInput=(event)=>{
+const handleChangeInput = (event) => {
   setNumberInput(event.target.value)
 }
 
 const toggleQuotes = () => {
   if (displayFact === false) {
     setDisplayFact(true)
-  } else if (displayFact === true) {
+  } else {
     setDisplayFact(false)
   }
 }
@@ -27,16 +27,15 @@ const toggleQuotes = () => {
       <main>
         <div className="number-trivia">
           <div>
-            Type a number:
+            Type a number: 
             <input value={numberInput} onChange={handleChangeInput}/>
           </div>         
-          
           {displayFact === false ? 
-            <h3>Let's learn a fun fact!</h3>
+            <h2>Let's learn a fun fact!</h2>
             :
             <Numbers displayFact={displayFact} numberInput={numberInput} />}
         </div>
-        <button onClick={toggleQuotes}>{displayFact === false ? "Show a fact" : "Clear Quote"}</button>
+        <button onClick={toggleQuotes}>{displayFact === false ? "Show a fact" : "Clear"}</button>
       </main>
     </div>
   );

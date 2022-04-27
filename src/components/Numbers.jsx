@@ -5,7 +5,7 @@ const Numbers = ({displayFact, numberInput}) => {
     const [fact, setFact] = useState('')
 
     useEffect(() => {
-        if(numberInput ==='') return
+        if(numberInput === '') return
         const getRandomFact = async () => {
             try {
                 const res = await axios.get(`http://numbersapi.com/${numberInput}`)
@@ -19,7 +19,7 @@ const Numbers = ({displayFact, numberInput}) => {
     }, [displayFact,numberInput])
 
     return (
-        <h3>{fact}</h3>
+        <h2>{fact}</h2>
     )
 }
 
