@@ -4,39 +4,39 @@ import Numbers from './components/Numbers';
 import { useState } from 'react';
 
 function App() {
-  const [displayFact, setDisplayFact] = useState(false)
+  const [displayAnimal, setDisplayAnimal] = useState(false)
   const [numberInput, setNumberInput] = useState('')
 
-const handleChangeInput = (event) => {
-  setNumberInput(event.target.value)
-}
-
-const toggleQuotes = () => {
-  if (displayFact === false) {
-    setDisplayFact(true)
-  } else {
-    setDisplayFact(false)
-    setNumberInput('')
+  const handleChangeInput = (event) => {
+    setNumberInput(event.target.value)
   }
-}
+
+  const toggleQuotes = () => {
+    if (displayAnimal === false) {
+      setDisplayAnimal(true)
+    } else {
+      setDisplayAnimal(false)
+      setNumberInput('')
+    }
+  }
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Random facts about a number</h1>
+        <h1>Random animal photos</h1>
       </header>
       <main>
         <div className="number-trivia">
           <div>
-            Type a number: 
-            <input value={numberInput} onChange={handleChangeInput}/>
+            Number: 
+            <input value={numberInput} onChange={handleChangeInput} placeholder="1-10"/>
           </div>         
-          {displayFact === false ? 
-            <h2>Let's learn a fun fact!</h2>
+          {displayAnimal === false ? 
+            <h2>Type a number between 1-10 to see random animal photos.</h2>
             :
-            <Numbers displayFact={displayFact} numberInput={numberInput} />}
+            <Numbers displayAnimal={displayAnimal} numberInput={numberInput} />}
         </div>
-        <button onClick={toggleQuotes}>{displayFact === false ? "Show a fact" : "Clear"}</button>
+        <button onClick={toggleQuotes}>{displayAnimal === false ? "Show photos" : "Clear"}</button>
       </main>
     </div>
   );

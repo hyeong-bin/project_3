@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const Numbers = ({displayFact, numberInput}) => {
-    const [fact, setFact] = useState('')
+const Numbers = ({ displayAnimal, numberInput}) => {
+    const [animals, setAnimals] = useState([])
 
     useEffect(() => {
         if(numberInput === '') return
         const getRandomFact = async () => {
             try {
-                const res = await axios.get(`http://numbersapi.com/${numberInput}`)
+                const res = await axios.get(`https://zoo-animal-api.herokuapp.com/animals/rand/${numberInput}`)
                 console.log(res)
-                setFact(res.data)
+                setAnimals(res.data)
             } catch(err) {
                 console.log(err)
             }
         }
         getRandomFact()
-    }, [displayFact,numberInput])
+    }, [displayAnimal,numberInput])
 
     return (
-        <h2>{fact}</h2>
+        <h2>{animals.map(animal=> {
+          return <img style={{width: 300}} src={animal.image_link} />
+        })}</h2>
     )
 }
 
